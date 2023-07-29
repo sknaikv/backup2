@@ -221,7 +221,7 @@
             </div>
 
 
-            <form action="/" id="form1" name="form_1" class="formm1" method="post" onsubmit="return false;">
+            <form action="/" id="form1" name="form_1" class="formm1" method="post">
 
 
                 <h3 class="heading-form"
@@ -537,14 +537,14 @@
 
                 <!-- <small id="small-gender">Select a choice</small> -->
                 <div class="form-control">
-                    <small></small>
+                    <small id="small-gender"></small>
                     <fieldset id="gender">
                         <legend>Gender<span style="color: #BC383E;">*</span></legend>
-                        <input type="radio" value="green" name="genderr" id="radio-gender">
+                        <input type="radio" value="green" name="genderr" id="radio-male">
                         <label for="male">Male</label>
-                        <input type="radio" name="genderr" value="red" id="radio-gender">
+                        <input type="radio" name="genderr" value="red" id="radio-female">
                         <label for="female">Female</label>
-                        <input type="radio" name="genderr" value="blue" id="radio-gender">
+                        <input type="radio" name="genderr" value="blue" id="radio-other">
                         <label for="other">Other</label>
                     </fieldset>
                 </div>
@@ -556,7 +556,7 @@
 
                 <div class="btn-next">
                     <a href=""><button type="reset" id="reset">Clear</button></a>
-                    <a href="#form2"><button type="submit" id="next1">Next</button></a>
+                    <a href="#form2"><button onclick="gendernotclick();" type="submit" id="next1">Next</button></a>
                     <!-- <a href="#tophead"><button type="submit" >Test</button></a> -->
                 </div>
             </form>
@@ -823,32 +823,32 @@
                 <ul id="monthofinternship">
                     <li>
                         <label for="">1 Month</label>
-                        <input type="radio" name="action" onclick="enabledisableTB();" required>
+                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
                     </li>
 
                     <li>
                         <label for="">2 Month</label>
-                        <input type="radio" name="action" onclick="enabledisableTB();" required>
+                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
                     </li>
 
                     <li>
                         <label for="">3 Month</label>
-                        <input type="radio" name="action" onclick="enabledisableTB();" required>
+                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
                     </li>
 
                     <li>
                         <label for="">4 Month</label>
-                        <input type="radio" name="action" onclick="enabledisableTB();" required>
+                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
                     </li>
 
                     <li>
                         <label for="">5 Month</label>
-                        <input type="radio" name="action" onclick="enabledisableTB();" required>
+                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
                     </li>
 
                     <li>
                         <label for="">6 Month</label>
-                        <input type="radio" name="action" onclick="enabledisableTB();" required>
+                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
                     </li>
 
                     <li id="other-li4">

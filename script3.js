@@ -1,5 +1,6 @@
 
 
+
 //form1
 const form1 = document.getElementById('form1');
 const firstnameVal = document.getElementById('firstname');
@@ -132,24 +133,6 @@ back5.onclick = function () {
 
 
 
-
-//show errors
-
-// function showerror(input, message) {
-//     const formcontrol = input.parentElement;
-//     formcontrol.className = 'form-control error';
-//     const small = formcontrol.querySelector('small');
-//     small.innerText = message;
-// }
-
-// show success
-
-// function showsuccess(input) {
-//     formcontrol = input.parentElement;
-//     formcontrol.className = 'form-control success';
-// }
-
-
 // **********************************form1 validation************************************************************
 
 form1.addEventListener('submit', (event) => {
@@ -158,10 +141,13 @@ form1.addEventListener('submit', (event) => {
 })
 
 
+
+
+
 const sendData = (sRate, count) => {
     if (sRate === count) {
         // alert('success');
-    
+
         form1.style.left = "-50%";
         form2.style.left = "50%"
         // progress.style.width = "28%"
@@ -185,7 +171,11 @@ const successMsgF1 = () => {
             var sRate = 0 + i;
             console.log(sRate);
             sendData(sRate, count);
-        } else {
+        } else if(formCon[i].className === "form-control default") {
+            var sRate = 0 + i;
+            console.log(sRate);
+            sendData(sRate, count);
+        }else{
             return false;
         }
     }
@@ -279,19 +269,134 @@ const validateF1 = () => {
         genderops[i].onclick = function () {
             setSuccessmsg(genderbox)
         }
-       
 
     }
-
-
-
-
-
-
     successMsgF1();
 
 
 }
+
+
+
+
+//form1 validation color change
+
+form1.addEventListener('change', (event) => {
+    event.preventDefault();
+    validateF12();
+})
+
+
+const validateF12 = () => {
+
+    //form1 inputs
+    const firstnameVal = firstname.value.trim();
+    const lastnameVal = lastname.value.trim();
+    const contactVal = contact.value.trim();
+    const emailVal = email.value.trim();
+    const countryVal = country.value.trim();
+    const cityVal = city.value.trim();
+
+
+
+    // validate firstname
+    if (firstnameVal === "") {
+        setErrormsg(firstname, 'Firstname is required');
+    } else if (firstnameVal.length < 1) {
+        setErrormsg(firstname, 'Firstname is required');
+    } else {
+        setSuccessmsg(firstname);
+    }
+
+
+    // validate lastname
+    if (lastnameVal === "") {
+        setErrormsg(lastname, 'Lastname is required');
+    } else if (lastnameVal.length < 1) {
+        setErrormsg(lastname, 'Lastname is required');
+    } else {
+        setSuccessmsg(lastname);
+    }
+
+
+    // validate email
+    if (emailVal === "") {
+        setErrormsg(email, 'Email is required');
+    } else if (!isEmail(emailVal)) {
+        setErrormsg(email, 'Enter a valid email address (eg: yourname@domain.com)');
+    } else {
+        setSuccessmsg(email);
+    }
+
+    // validate contact
+    if (contactVal === "") {
+        setErrormsg(contact, 'Contact is required');
+    } else if (contactVal.length != 10) {
+        setErrormsg(contact, 'Maximum limit 10 digits only');
+    } else {
+        setSuccessmsg(contact);
+    }
+
+    //validate country
+    if (countryVal === "") {
+        setErrormsg(country, 'Country is required');
+    } else if (countryVal.selectedIndex == 0) {
+        setErrormsg(country, 'Country is required');
+    } else {
+        setSuccessmsg(country);
+    }
+
+    //validate city
+    if (cityVal === "") {
+        setErrormsg(city, 'City is required');
+    } else if (cityVal.length < 1) {
+        setErrormsg(city, 'City is required');
+    } else {
+        setSuccessmsg(city);
+    }
+
+    //validate gender
+    // let genderops = document.getElementsByName('genderr');
+
+
+    // for (let i = 0; i < genderops.length; i++) {
+    //     genderops[i].onclick = function () {
+    //        setSuccessmsg(genderbox);
+    //     }   
+    // }
+
+
+}
+
+
+
+//validate gender fucntion
+function gendernotclick() {
+    let radio1 = document.getElementById('radio-male');
+    let radio2 = document.getElementById('radio-female');
+    let radio3 = document.getElementById('radio-other');
+    let genderbox = document.getElementById('gender');
+
+    if (radio1.checked) {
+        setSuccessmsg(genderbox);
+    } else if (radio2.checked) {
+        setSuccessmsg(genderbox);
+    } else if (radio3.checked) {
+        setSuccessmsg(genderbox);
+    } else {
+        setErrormsg(genderbox, 'Select a choice');
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 // **********************************form2 validation************************************************************
 
@@ -302,15 +407,10 @@ form2.addEventListener('submit', (event) => {
 
 
 
+
 const sendDataf2 = (sRate, count) => {
     if (sRate === count) {
-        // alert('success');
-        // Swal.fire(
-        //     'Good job!',
-        //     'You clicked the button!',
-        //     'success'
-        // )
-
+      
         form2.style.left = "-50%";
         form3.style.left = "50%"
         bullet[current - 1].classList.add("active");
@@ -373,6 +473,42 @@ const validateF2 = () => {
 
 
 
+//form2 validation on color change
+
+
+form2.addEventListener('change', (event) => {
+    event.preventDefault();
+    validateF22();
+})
+
+
+const validateF22 = () => {
+    //form2 inputs
+    const degreeVal = degree.value.trim();
+    // const passyearVal = passyear.value.trim();
+
+
+    // validate degree
+    if (degreeVal === "") {
+        setErrormsg(degree, 'Degree is required');
+    } else if (degreeVal.length < 1) {
+        setErrormsg(degree, 'Degree is required');
+    } else {
+        setSuccessmsg(degree);
+    }
+
+    //validate passyear
+    if (passyearVal === "") {
+        setErrormsg(passyear, 'Pass year is required');
+    } else if (passyearVal.selectedIndex == 0) {
+        setErrormsg(passyear, 'Pass year is required');
+    } else {
+        setSuccessmsg(passyear);
+    }
+
+}
+
+
 //errormsg
 function setErrormsg(input, errormsg) {
     const formcontrol = input.parentElement;
@@ -387,7 +523,10 @@ function setSuccessmsg(input) {
 }
 
 
-
+function setdefault(input){
+    const formcontrol = input.parentElement;
+    formcontrol.className = "form-control default"
+}
 
 
 
@@ -401,6 +540,7 @@ form3.addEventListener('submit', (event) => {
     event.preventDefault();
     validateF3();
 })
+
 
 
 const sendDataf3 = (sRate, count) => {
@@ -448,15 +588,45 @@ const validateF3 = () => {
 
 
         if (otherlang === "") {
-            setErrormsg(otherlang2, 'Enter this field');
+            setErrormsg(otherlang2, '');
         } else if (otherlang.length < 1) {
-            setErrormsg(otherlang2, 'Enter this field');
+            setErrormsg(otherlang2, '');
         } else {
             setSuccessmsg(otherlang2);
         }
     }
 
     successMsgF3();
+}
+
+
+//form3 validation on change
+
+
+form3.addEventListener('change', (event) => {
+    event.preventDefault();
+    validateF32();
+})
+
+const validateF32 = () => {
+    const otherlang = otherlang2.value.trim();
+
+    //validate otherinput
+
+
+    var otherbtn = document.getElementById('otherlan2');
+
+    if (otherbtn.checked == true) {
+
+
+        if (otherlang === "") {
+            setErrormsg(otherlang2, '');
+        } else if (otherlang.length < 1) {
+            setErrormsg(otherlang2, '');
+        } else {
+            setSuccessmsg(otherlang2);
+        }
+    }
 }
 
 
@@ -470,6 +640,7 @@ form4.addEventListener('submit', function (e) {
     }
 
 })
+
 
 const sendDataf4 = (sRate, count) => {
     if (sRate === count) {
@@ -514,17 +685,53 @@ const validateF4 = () => {
 
 
         if (otherlang1 === "") {
-            setErrormsg(otherlang4, 'Enter this field');
+            setErrormsg(otherlang4, '');
         } else if (otherlang1.length < 1) {
-            setErrormsg(otherlang4, 'Enter this field');
+            setErrormsg(otherlang4, '');
         } else {
             setSuccessmsg(otherlang4);
         }
+    }else {
+        
     }
 
     successMsgF4();
 }
 
+
+
+
+//form4 validation on change
+
+form4.addEventListener('change', (event) => {
+    event.preventDefault();
+    validateF42();
+})
+
+
+const validateF42 = () => {
+    const otherlang1 = otherlang4.value.trim();
+
+    //validate otherinput4
+
+
+    var otherbtn = document.getElementById('otherlan');
+
+    if (otherbtn.checked == true) {
+
+
+        if (otherlang1 === "") {
+            setErrormsg(otherlang4, '');
+        } else if (otherlang1.length < 1) {
+            setErrormsg(otherlang4, '');
+        } else {
+            setSuccessmsg(otherlang4);
+        }
+    }else{
+        setdefault(otherlang4);
+    }
+
+}
 
 
 
@@ -534,7 +741,6 @@ form5.addEventListener('submit', function (e) {
     e.preventDefault();
     validateF5();
 })
-
 
 
 
@@ -570,8 +776,6 @@ const successMsgF5 = () => {
 
 
 
-
-
 const validateF5 = () => {
     const refe = ref.value.trim();
 
@@ -589,6 +793,27 @@ const validateF5 = () => {
 
 
 
+//form5 validation on change
+
+form5.addEventListener('change', (event) => {
+    event.preventDefault();
+    validateF52();
+})
+
+
+const validateF52 = () => {
+    const refe = ref.value.trim();
+
+    //validateref
+    if (refe === "") {
+        setErrormsg(ref, 'Reference is required');
+    } else if (refe.length < 1) {
+        setErrormsg(ref, 'Reference is required');
+    } else {
+        setSuccessmsg(ref);
+    }
+
+}
 
 
 
@@ -694,7 +919,7 @@ function enabledisableTB2() {
 
 // function checkLengthref(input, min, max) {
 //     if (input.value.length < min) {
-//         showerror(input, `${getfieldName(input)} must be atleast  ${min} characters`);
+//         showerror(inName(input)} must be atleast  ${min} characters`);
 //         input.preventDefault();
 //     } else if (input.value.length > max) {
 //         showerror(input, `${getfieldName(input)} must be less than ${max} characters`);
@@ -714,10 +939,15 @@ function enabledisableTB2() {
 //     }
 // }
 
+
+// ***************************************************validation form6***************************************
+
 form6.addEventListener('submit', function (e) {
     e.preventDefault();
     validateF6();
 })
+
+
 
 const sendDataf6 = (sRate, count) => {
     if (sRate === count) {
@@ -727,7 +957,7 @@ const sendDataf6 = (sRate, count) => {
         current += 1;
         Swal.fire(
             'Your Form has been submitted Successfully!'
-         )
+        )
         setTimeout(() => {
             location.reload();
         }, 3500);
@@ -764,10 +994,10 @@ const validateF6 = () => {
     const tnc = document.querySelector('#tnC');
 
 
-    if(tnc.checked){
+    if (tnc.checked) {
         setSuccessmsg(tncbox);
-    }else{
-        setErrormsg(tncbox,'Please accept the Terms and Conditions!');
+    } else {
+        setErrormsg(tncbox, 'Please accept the Terms and Conditions!');
     }
 
 
@@ -775,6 +1005,29 @@ const validateF6 = () => {
 }
 
 
+
+
+//form6 validation on chnge
+
+form6.addEventListener('change', (event) => {
+    event.preventDefault();
+    validateF62();
+})
+
+const validateF62 = () => {
+
+    //validate gender
+    let tncbox = document.getElementById('fieldset');
+    const tnc = document.querySelector('#tnC');
+
+
+    if (tnc.checked) {
+        setSuccessmsg(tncbox);
+    } else {
+        setErrormsg(tncbox, 'Please accept the Terms and Conditions!');
+    }
+
+}
 
 //topview
 
