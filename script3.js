@@ -1143,3 +1143,10 @@ window.addEventListener("scroll", () => {
 //     leftnav.classList.toggle('active');
 //     listnames.classList.toggle('active');
 // })
+
+// const box = document.querySelector('#form1');
+// const box2 = document.querySelector('#form2');
+// const rect = box.getBoundingClientRect();
+// const rect2 = box2.getBoundingClientRect();
+
+// console.log(rect,rect2);

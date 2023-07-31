@@ -163,14 +163,15 @@
 
   body {
     font-family: 'poppins';
-    /* background-size: cover; */
-    /* background-image: linear-gradient(rgba(168, 164, 194, 0.13), rgba(168, 164, 194, 0.13)), url(./vecteezy_internship-flat-style-illustration-design_11637858.jpg); */
+    /* background-size: cover;
+    background-image: linear-gradient(rgba(168, 164, 194, 0.13), rgba(168, 164, 194, 0.13)), url(./output-onlinepngtools.png);
+    background-repeat: no-repeat; */
     /* background-blend-mode: color-burn(rgb(0, 0, 207)); */
     /* background: url(./vecteezy_internship-flat-style-illustration-design_11637858.jpg);
     background-size: 80% 100%;
     background-position: center;
-    background-repeat: no-repeat; */
     /* background-color: #0a288b5d; */
+    background-color: #F4F3F7;
 
   }
 
@@ -688,7 +689,7 @@
     margin: 0px 10px;
     padding: 5px 25px;
     border: 1px solid #071b5e7e;
-    background: white;
+    background: #fff5;
     font-size: 16px;
     cursor: pointer;
     color: black;
@@ -775,7 +776,7 @@
 
   #form1 {
     position: absolute;
-    background-color: #fff;
+    background-color: #fff5;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -835,7 +836,8 @@
   select {
     background-color: transparent;
     padding: 10px;
-    border: 1px solid rgba(87, 87, 87, 0.295);
+    /* border: 1px solid rgba(87, 87, 87, 0.295); */
+    border: 1px solid #071b5e;
     border-radius: 5px;
     outline-color: #0a288b8a;
     font-family: 'poppins';
@@ -923,7 +925,7 @@
 
   #form2 {
     position: absolute;
-    background-color: #fff;
+    background-color: #fff5;
     display: flex;
     flex-direction: column;
     /* -webkit-backdrop-filter: blur(5px); */
@@ -947,7 +949,7 @@
 
   #form3 {
     position: absolute;
-    background-color: #fff;
+    background-color: #fff5;
     display: flex;
     flex-direction: column;
     column-count: 3;
@@ -972,7 +974,7 @@
 
   #form4 {
     position: absolute;
-    background-color: #fff;
+    background-color: #fff5;
     display: flex;
     flex-direction: column;
     column-count: 3;
@@ -997,7 +999,7 @@
 
   #form5 {
     position: absolute;
-    background-color: #fff;
+    background-color: #fff5;
     display: flex;
     flex-direction: column;
     column-count: 3;
@@ -1022,7 +1024,7 @@
 
   #form6 {
     position: absolute;
-    background-color: #fff;
+    background-color: #fff5;
     display: flex;
     flex-direction: column;
     column-count: 3;
@@ -1167,9 +1169,9 @@
   }
 
 
-  .form-control.error label{
+  /* .form-control.error label{
     animation: var(--animation);
-  }
+  } */
 
 
   .form-control2,.form-control3,.form-control4,.form-control5,.form-control6{
