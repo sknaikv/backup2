@@ -70,6 +70,66 @@ let current = 1;
 
 
 
+
+
+
+
+function formtrans(){
+    var tl = gsap.timeline();
+
+    tl.from(".main",{
+        y: '-10',
+        opacity: 0,
+        duration: 1.5,
+        ease: Expo.easeInOut
+    })
+}
+
+function logotrans(){
+    var tl = gsap.timeline();
+
+    tl.from(".left-nav",{
+        x: '-15',
+        opacity: 0,
+        duration: 1.5,
+        ease: Expo.easeInOut
+    })
+}
+
+function progresstrans(){
+    var tl = gsap.timeline();
+
+    tl.from(".step",{
+        x: '-15',
+        opacity: 0,
+        duration: 1.5,
+        stagger:.2,
+        ease: Expo.easeInOut
+    })
+}
+
+function inputtrans(){
+    var tl = gsap.timeline();
+
+    tl.from("input,label",{
+        x: '-15',
+        opacity: 0,
+        duration: 1.5,
+        ease: Expo.easeInOut
+    })
+    
+}
+
+// var element = document.getElementsByClassName("fname");
+
+// TweenMax.to(element, 0.1, {x:"+=20", yoyo:true, repeat:-1});
+// TweenMax.to(element, 0.1, {x:"-=20", yoyo:true, repeat:-1});
+
+inputtrans();
+progresstrans();
+formtrans();
+logotrans();
+
 // bullet[current - 1].classList.add("active");
 // bullet[current - 1].classList.add("active");
 // current += 1;
@@ -229,7 +289,7 @@ const validateF1 = () => {
     if (emailVal === "") {
         setErrormsg(email, 'Email is required');
     } else if (!isEmail(emailVal)) {
-        setErrormsg(email, 'Email is required');
+        setErrormsg(email, 'Enter a valid email address (eg: yourname@domain.com');
     } else {
         setSuccessmsg(email);
     }
@@ -364,6 +424,8 @@ const validateF12 = () => {
     //        setSuccessmsg(genderbox);
     //     }   
     // }
+
+    gendernotclick();
 
 
 }
@@ -691,8 +753,6 @@ const validateF4 = () => {
         } else {
             setSuccessmsg(otherlang4);
         }
-    }else {
-        
     }
 
     successMsgF4();
@@ -727,8 +787,6 @@ const validateF42 = () => {
         } else {
             setSuccessmsg(otherlang4);
         }
-    }else{
-        setdefault(otherlang4);
     }
 
 }
@@ -960,7 +1018,7 @@ const sendDataf6 = (sRate, count) => {
         )
         setTimeout(() => {
             location.reload();
-        }, 3500);
+        }, 3000);
 
     }
 }
@@ -1039,9 +1097,6 @@ window.addEventListener("scroll", () => {
         topview.classList.remove("active");
     }
 })
-
-
-
 
 
 // function checkRequired(inputArr) {

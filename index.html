@@ -18,10 +18,12 @@
         href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Cedarville+Cursive&family=Comfortaa:wght@300&family=Hind:wght@300&family=IBM+Plex+Sans&family=Josefin+Sans:wght@100&family=Poppins:wght@200;500&family=Roboto&family=Roboto+Slab:wght@300;400&family=Satisfy&family=Ubuntu:wght@300;400&family=Varela+Round&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loco.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- <script src="./index.js" defer></script> -->
     <!-- <script src="./script2.js" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script3.js" defer></script>
 </head>
@@ -223,9 +225,9 @@
 
             <form action="/" id="form1" name="form_1" class="formm1" method="post">
 
-
                 <h3 class="heading-form"
-                    style="padding: 60px 0px 10px 0px; border-bottom: 2px solid #0a288b8a;margin-top: 65px">Personal
+                    style="padding: 60px 0px 10px 0px; border-bottom: 2px solid #0a288b8a;margin-top: 65px"
+                    id="pd-title">Personal
                     Details</h3>
 
                 <div class="form-control">
@@ -242,7 +244,7 @@
 
                 <div class="form-control">
                     <label for="contact">Contact Number<span>*</span><small></small></label>
-                    <input type="text" placeholder="Contact Number" id="contact">
+                    <input type="number" placeholder="Contact Number" id="contact">
 
                 </div>
 
@@ -540,12 +542,24 @@
                     <small id="small-gender"></small>
                     <fieldset id="gender">
                         <legend>Gender<span style="color: #BC383E;">*</span></legend>
-                        <input type="radio" value="green" name="genderr" id="radio-male">
-                        <label for="male">Male</label>
-                        <input type="radio" name="genderr" value="red" id="radio-female">
-                        <label for="female">Female</label>
-                        <input type="radio" name="genderr" value="blue" id="radio-other">
-                        <label for="other">Other</label>
+
+                        <div class="radio-list">
+                            <div class="radio-item">
+                                <input type="radio" value="green" name="genderr" id="radio-male">
+                                <label style=" padding-left: 25px;" for="radio-male">Male</label>
+                            </div>
+
+                            <div class="radio-item">
+                                <input type="radio" name="genderr" value="red" id="radio-female">
+                                <label style="padding-left: 25px;" for="radio-female">Female</label>
+                            </div>
+
+                            <div class="radio-item">
+                                <input type="radio" name="genderr" value="blue" id="radio-other">
+                                <label style="padding-left: 25px;" for="radio-other">Other</label>
+                            </div>
+                        </div>
+
                     </fieldset>
                 </div>
 
@@ -621,138 +635,139 @@
                 <h3 style="padding: 0px 0px 10px 0px; border-bottom: 2px solid #0a288b8a;margin-top: 65px;">Internship
                     looking for<span style="color: #BC383E;">*</span></h3>
                 <ul>
-                    <li>
-                        <label style="padding-top: 20px;" for="">.NET MVC</label>
-                        <input style="padding-top: 20px;" type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input style="padding-top: 20px;" type="radio" name="#" id="netmvc" required
+                            onclick="enabledisableTB2();">
+                        <label style="padding-top: 20px; padding-left: 25px;" for="netmvc">.NET MVC</label>
                     </li>
 
-                    <li>
-                        <label for="">Business Development</label>
-                        <input type="radio" name="#" id="#id" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="bd" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="bd">Business Development</label>
                     </li>
 
-                    <li>
-                        <label for="">Flutter/Android/Ios</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="flutt" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="flutt">Flutter/Android/Ios</label>
                     </li>
 
-                    <li>
-                        <label for="">Html UI</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="html" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="html">Html UI</label>
                     </li>
 
-                    <li>
-                        <label for="">Laravel</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" id="lara" name="#" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="lara">Laravel</label>
                     </li>
 
-                    <li>
-                        <label for="">Photoshop</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="ps" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="ps">Photoshop</label>
                     </li>
 
-                    <li>
-                        <label for="">Python</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="Python" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="Python">Python</label>
                     </li>
 
-                    <li>
-                        <label for="">Software Development</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="sd" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="sd">Software Development</label>
                     </li>
 
-                    <li>
-                        <label for="">Web Development</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="wd" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="wd">Web Development</label>
                     </li>
 
-                    <li>
-                        <label for="">Angular</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="ang" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="ang">Angular</label>
                     </li>
 
-                    <li>
-                        <label for="">Digital Marketing</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="dm" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="dm">Digital Marketing</label>
                     </li>
 
-                    <li>
-                        <label for="">HR</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="hr" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="hr">HR</label>
                     </li>
 
-                    <li>
-                        <label for="">IOT</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="iot" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="iot">IOT</label>
                     </li>
 
-                    <li>
-                        <label for="">Marketing</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" itemref="mar" id="mar" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="mar">Marketing</label>
                     </li>
 
-                    <li>
-                        <label for="">Php</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="php" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="php">Php</label>
                     </li>
 
-                    <li>
-                        <label for="">React</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" itemref="react" id="react" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="react">React</label>
                     </li>
 
-                    <li>
-                        <label for="">Testing</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="test" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="test">Testing</label>
                     </li>
 
-                    <li id="other-li">
+                    <li id="other-li" class="radio-item">
                         <div class="form-control3">
-                            <label for="">Other:</label>
                             <input type="radio" name="#" id="otherlan2" onclick="enabledisableTB2();">
-                            <input style="outline-color: #0a288b8a;" type="text" id="otherlang2"
+                            <label style="padding-left: 25px;" for="otherlan2" style="display: inline;">Other:</label>
+                            <input style="outline-color: #0a288b8a; max-width: 160px;" type="text" id="otherlang2"
                                 disabled>&nbsp;<small></small>
                         </div>
                     </li>
 
-                    <li>
-                        <label for="">BBA/MBA</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="bba" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="bba">BBA/MBA</label>
                     </li>
 
-                    <li>
-                        <label for="">Finance</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="fin" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="fin">Finance</label>
                     </li>
 
-                    <li>
-                        <label for="">Hardware</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="hard" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="hard">Hardware</label>
                     </li>
 
-                    <li>
-                        <label for="">Java</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="java" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="java">Java</label>
                     </li>
 
-                    <li>
-                        <label for="">Networking</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="net" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="net">Networking</label>
                     </li>
 
-                    <li>
-                        <label for="">Project Manager</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="pm" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="pm">Project Manager</label>
                     </li>
 
-                    <li>
-                        <label for="">Sales</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="sales" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="sales">Sales</label>
                     </li>
 
-                    <li>
-                        <label for="">UI Designer(Figma. etc)</label>
-                        <input type="radio" name="#" onclick="enabledisableTB2();" required>
+                    <li class="radio-item">
+                        <input type="radio" name="#" id="ui" required onclick="enabledisableTB2();">
+                        <label style="padding-left: 25px;" for="ui">UI Designer(Figma. etc)</label>
                     </li>
                 </ul>
 
@@ -812,49 +827,54 @@
                 <h4 style=" padding: 20px 0px 10px 10px;">What Option you want to Choose After Reading Above
                     Program?<span style="color: #BC383E;">*</span></h4>
                 <li style="padding-left: 20px;">
-                    <label for="">Option 1</label>
-                    <input type="radio" name="option" id="optionid" required>
-                    <label for="">Option 2</label>
-                    <input type="radio" name="option" required>
+                    <div class="radio-item">
+                        <input type="radio" name="optionp" id="radio1" required>
+                        <label style="padding-left: 25px;margin-bottom: 10px;" for="radio1">Option 1</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="optionp" id="radio2" required>
+                        <label style="padding-left: 25px;" for="radio2">Option 2</label>
+                    </div>
                 </li>
 
                 <h4 style=" padding: 20px 0px 10px 10px;">Internship Duration:<span style="color: #BC383E;">*</span>
                 </h4>
                 <ul id="monthofinternship">
-                    <li>
-                        <label for="">1 Month</label>
-                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
+                    <li class="radio-item">
+                        <input type="radio" name="action" id="1m" required onclick="enabledisableTB();"
+                            aria-required="true">
+                        <label style="padding-left: 25px;" for="1m">1 Month</label>
                     </li>
 
-                    <li>
-                        <label for="">2 Month</label>
-                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
+                    <li class="radio-item">
+                        <input type="radio" name="action" id="2m" onclick="enabledisableTB();" aria-required="true">
+                        <label style="padding-left: 25px;" for="2m">2 Month</label>
                     </li>
 
-                    <li>
-                        <label for="">3 Month</label>
-                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
+                    <li class="radio-item">
+                        <input type="radio" name="action" id="3m" onclick="enabledisableTB();" aria-required="true">
+                        <label style="padding-left: 25px;" for="3m">3 Month</label>
                     </li>
 
-                    <li>
-                        <label for="">4 Month</label>
-                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
+                    <li class="radio-item">
+                        <input type="radio" name="action" id="4m" onclick="enabledisableTB();" aria-required="true">
+                        <label style="padding-left: 25px;" for="4m">4 Month</label>
                     </li>
 
-                    <li>
-                        <label for="">5 Month</label>
-                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
+                    <li class="radio-item">
+                        <input type="radio" name="action" id="5m" onclick="enabledisableTB();" aria-required="true">
+                        <label style="padding-left: 25px;" for="5m">5 Month</label>
                     </li>
 
-                    <li>
-                        <label for="">6 Month</label>
-                        <input type="radio" name="action" required onclick="enabledisableTB();" aria-required="true">
+                    <li class="radio-item">
+                        <input type="radio" name="action" id="6m" onclick="enabledisableTB();" aria-required="true">
+                        <label style="padding-left: 25px;" for="6m">6 Month</label>
                     </li>
 
-                    <li id="other-li4">
+                    <li id="other-li4" class="radio-item">
                         <div class="form-control4">
-                            <label for="">Other</label>
                             <input type="radio" name="action" id="otherlan" onclick="enabledisableTB();" required>
+                            <label style="padding-left: 25px;" for="otherlan" style="display: inline;">Other</label>
                             <input style="outline-color: #0a288b8a;" type="text" id="otherlang" disabled>
                             <small></small>
                         </div>
@@ -870,12 +890,15 @@
                     with
                     Internet connectivity to work?<span style="color: #BC383E;">*</span></h4>
 
-                <li style="padding:20px 0px 0px 15px; display: flex; align-items: baseline;">
-                    <label for="">Yes</label>
-                    <input style="margin-left: 10px; margin-right: 10px;" type="radio" name="laptop" id="laptopid" required>
-                    <div class="form-control4"></div>
-                    <label for="">No</label>
-                    <input style="margin-left: 10px;" type="radio" name="laptop" required>
+                <li style="padding:20px 0px 0px 15px; display: flex; align-items: baseline;" class="radio-item">
+                    <div class="radio-item">
+                        <input type="radio" name="laptop" id="yesss" required>
+                        <label style="padding-left: 25px;" for="yesss">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                        <input style="margin-left: 10px;" type="radio" name="laptop" id="nooo" required>
+                        <label style="padding-left: 25px;" for="nooo">No</label>
+                    </div>
                 </li>
 
                 <div class="btn-next">
@@ -920,7 +943,8 @@
 
                         <ul style="display: flex; align-items: center;padding: 10px 0px;">
                             <input type="checkbox" name="tnc" id="tnC">
-                            <p style="margin-left: 10px;">I accept the Terms and Conditions.</p>
+                            <label class="tncp" for="tnC" style="margin-left: 10px; padding-top: 0px;">I accept the
+                                Terms and Conditions.</label>
                         </ul>
                     </fieldset>
                     <small></small>
@@ -967,34 +991,15 @@
         <p>Copyright © 2021 KGE Technologies</p>
     </footer> -->
 
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script>
+
+
+
         var loader = document.getElementById('loader-container');
         window.addEventListener('load', () => {
             loader.style.display = 'none';
         })
-
-
-
-        // (function(){
-        //     $('form > input').keyup(function(){
-        //         var empty = false;
-        //         $('form > input').each(function(){
-        //             if($(this).val()==''){
-        //                 empty=true;
-        //             }
-        //         });
-
-        //         if(empty){
-        //             $('#btntext').attr('disabled','disabled');
-        //         }else{
-        //             $('#btntext').removeAttr('disabled');
-        //         }
-        //     });
-        // })()    
-
-
-
-
     </script>
 
 
