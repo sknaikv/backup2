@@ -188,10 +188,6 @@
    font-weight: 600;
   }
 
-  label{
-    cursor: pointer;
-  }
-
   .radio-item>input>label{
     padding-left: 25px;
   }
@@ -861,11 +857,15 @@
     /* color: #0a288b; */
   }
 
-
+  input[type="date"]{
+    cursor: pointer;
+    max-width: 50%;
+  }
 
 
   fieldset {
-    border: 1px solid rgba(87, 87, 87, 0.295);
+    /* border: 1px solid rgba(87, 87, 87, 0.295); */
+    border: 1px solid #071b5e;;
     border-radius: 5px;
     padding: 10px;
     background-color: transparent;

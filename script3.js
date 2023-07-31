@@ -1047,7 +1047,7 @@ const successMsgF6 = () => {
 
 const validateF6 = () => {
 
-    //validate gender
+    //validate tnc
     let tncbox = document.getElementById('fieldset');
     const tnc = document.querySelector('#tnC');
 
